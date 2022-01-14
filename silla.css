@@ -1,0 +1,135 @@
+#banner 
+{
+	
+	/*background: linear-gradient(white, blue);*/
+	cursor: pointer;
+}
+.sillogic:hover
+{
+	opacity: 0px;
+}
+
+
+li
+{
+	display: inline-block;
+	list-style: none;
+	float: left;
+	margin: auto;
+	padding: 20px 20px;
+	cursor: pointer;
+	letter-spacing: 1px;
+	
+}
+.trans:hover
+{
+	transition: all;
+	opacity: 1;
+
+}
+.trans
+{
+	opacity: 0.5;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	margin: 10px 10px;
+	border-radius: 50px;
+	margin-right: 25px;
+}
+nav
+{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+header
+{
+	position: absolute;
+	width: 1350px;
+	margin-top: 0px;
+	height: 200px;
+	background-color: transparent;
+}
+.sillogic
+{
+	height: 200px;	
+	
+}
+
+a
+{
+	color: black;
+	text-decoration: none;
+	border-bottom: none;
+}
+ul > li > a:hover
+{
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	border-bottom: none;
+	
+}
+body
+{
+	background-color: #fff;
+}
+.news
+{
+	padding-top: 40px;
+	margin: auto;
+	position: absolute;
+	top: 200px;
+	left: 250px;
+}
+#news, #weather
+{
+
+	max-width: 250px;
+	object-fit: cover;
+	object-position: right;
+	
+	
+}
+
+#news:hover, #weather:hover, #stack:hover
+{
+   transform: rotate(-360deg);
+   transition: 2s;
+   margin-top: 20px;
+   border-radius: 50%;
+
+}
+.weather
+{
+	
+	
+	position: absolute;
+	top: 240px;
+	left: 540px;
+
+}
+.stack
+{
+	padding-top: 40px;
+	margin: auto;
+	position: absolute;
+	top: 200px;
+	left: 830px;
+
+}
+#stack
+{
+	max-width: 100%;
+}
+.index
+{
+	position: relative;
+	top: 600px;
+
+}
+section a
+{
+	/*background-color: #fff;*/
+}
