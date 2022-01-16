@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<meta name="viewport" content="width=device-width, height=570, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<style type="text/css">
+		.container
+		{
+			display: grid;
+			grid-template-rows: repeat(2, 1fr);
+			grid-auto-rows: minmax(auto, auto);
+			grid-row-gap: 1em;
+			border: solid 2px black;
+			padding: 20px;
+			width: 250px;
+			margin: auto;
+			border-radius: 10px; 
+			background-color: #242425;
+		}
+		.screen, .button, .button > div
+		{
+			border: solid 1px black;
+			text-align: center;
+		}
+
+		.button
+		{
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 1em;
+			padding: 10px;
+			border-bottom-right-radius:  10px;
+			border-bottom-left-radius:  10px;
+		}
+		button
+		{
+			width: 100%;
+			transition: 2ms;
+		}
+		h4
+		{
+			padding: 0px;
+			margin: 0px;
+			position: absolute;
+			display: inline;
+			color: white;
+		}
+		.screen
+		{
+			margin-top: 40px;
+			margin-bottom: 40px;
+			align-items: center;
+			text-align: center;
+			vertical-align: middle;
+			background-color: white;
+			border-top-right-radius:  10px;
+			border-top-left-radius:  10px;
+		}
+		.r
+		{
+			font-size: bold;
+		}
+		span
+		{
+			color: transparent;
+
+		}
+		button:hover
+		{
+			color: white;
+			background-color: black;
+			transition: 2ms;
+			border: dotted 1px yellow;
+			cursor: pointer;
+		}
+		body
+		{
+			background-color: #858889/*E5D9A7DEC5C5*/;
+			padding-top: 50px;
+		}
+
+		@media (min-width: 100px) and (max-width: 570px)
+		{
+			body
+			{
+				background-color: green;
+				margin: auto;
+			}
+		}
+	</style>
+	<script type="text/javascript">
+		let x=0;
+		let y=0;
+		let z=0;
+		let op;
+		let index=0;
+		let operation=0;
+		let number=0, number1=0;
+		let screen= document.getElementById('screen');
+		
+		
+
+		function digit(n)
+		{
+			if(n=='c') 
+			{
+				document.getElementById('screen').innerHTML=" "; // for clearing the screen
+				x=0; y=0; z=0; index=0; operation=0; number=0; number1=0;
+				return 0;
+			}
+			else if(n=='r')
+			{
+				document.getElementById('screen').innerHTML= '<h1 id="h">' +'Basic Calculator!'+ '</h1>' +
+			'<h3>' + 'Made By Silla Ibrahim' + '</h3>';
+				document.getElementById('screen').style.paddingTop="0px";
+				document.getElementById('screen').style.fontSize="16px";
+				x=0; y=0; z=0; index=0; operation=0; number=0; number1=0;
+				return 0;
+			}
+			if(operation==0) 
+			{
+				document.getElementById('screen').innerHTML=" "; // for clear the welcome words
+				operation=1;
+			}
+			if(n!='c' && n!='r')
+			{
+				document.getElementById('screen').style.paddingTop="50px";
+				document.getElementById('screen').style.fontSize="25px";
+				document.getElementById('screen').innerHTML+=n; // for displaying each click
+			}
+
+			if(index==0)
+			{
+				if(!isNaN(n) && number==0)
+				{
+					x=n;
+					number=1;
+				}
+				else if(!isNaN(n) && number!=0)
+				{
+					x*=10;
+					if(n!=0)
+					{
+						x+=n;
+					}
+				}
+				else
+				{
+					op=n;
+					index=1;
+				}
+				
+				
+			}
+			else
+			{
+				
+				if(!isNaN(n) && number1==0)
+				{
+					y=n;
+					number1=1;
+				}
+				else if(!isNaN(n) && number1!=0)
+				{
+					y*=10;
+					if(n!=0)
+					{
+						y+=n;
+					}
+				}
+				if(n=='=')
+				{
+					switch(op)
+					{
+						case '+':
+							document.getElementById('screen').innerHTML+= " " + (x*1 + y*1);
+							break;
+						case '-':
+							document.getElementById('screen').innerHTML+=" " + (x*1 - y*1);
+							break;
+						case '*':
+							document.getElementById('screen').innerHTML+=" " + (x*1 * y*1);
+							break;
+						case '/':
+							document.getElementById('screen').innerHTML+=" " + (x*1 / y*1);
+							break;
+						case '%':
+							document.getElementById('screen').innerHTML+=" " + (x*1 % y*1);
+							break;
+						
+					}
+				}
+				
+
+				
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h4><span style="color: orange;">JS-350MS-A</span>       <span>***************</span>     Silla</h4>
+		<div class="screen" id='screen'>
+			<h1>Basic Calculator!</h1>
+			<h3>Made By Silla Ibrahim</h3>
+		</div>
+		<div class="button">
+			<div>
+				<button onclick="digit(1)">1</button>
+			</div>
+			<div>
+				<button onclick="digit(2)">2</button>
+			</div>
+			<div>
+				<button onclick="digit(3)">3</button>
+			</div>
+			<div>
+				<button onclick="digit(4)">4</button>
+			</div>
+			<div>
+				<button onclick="digit(5)">5</button>
+			</div>
+			<div>
+				<button onclick="digit(6)">6</button>
+			</div>
+			<div>
+				<button onclick="digit(7)">7</button>
+			</div>
+			<div>
+				<button onclick="digit(8)">8</button>
+			</div>
+			<div>
+				<button onclick="digit(9)">9</button>
+			</div>
+			<div>
+				<button onclick="digit(0)">0</button>
+			</div>
+			<div>
+				<button onclick="digit('+')">+</button>
+			</div>
+			<div>
+				<button onclick="digit('-')">-</button>
+			</div>
+			<div>
+				<button onclick="digit('*')">x</button>
+			</div>
+			<div>
+				<button onclick="digit('/')">/</button>
+			</div>
+			<div>
+				<button onclick="digit('%')">%</button>
+			</div>
+			<div>
+				<button onclick="digit('c')">C</button>
+			</div>
+			<div>
+				<button onclick="digit('=')">=</button>
+			</div>
+			<div>
+				<button onclick="digit('r')">Reset</button>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
